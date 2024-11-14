@@ -24,18 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Start a session and store user information if needed
             session_start();
             $_SESSION['email'] = $email; // You can store additional user info as needed
-
             // Redirect to a different page after successful login
-            header("Location: login.html"); // Change 'dashboard.php' to your desired page
+            header("Location: login.php"); // Change 'dashboard.php' to your desired page
             exit(); // Make sure to exit after the redirect
         } else {
-            echo "<script>alert('Invalid password!'); window.location.href = 'login.html';</script>";
+            echo "<script>alert('Invalid password!'); window.location.href = 'login.php';</script>";
         }
     } else {
-        echo "<script>alert('No user found with this email!'); window.location.href = 'login.html';</script>";
+        echo "<script>alert('No user found with this email!'); window.location.href = 'login.php';</script>";
     }
     $stmt->close();
 }
-
 $conn->close();
 ?>
